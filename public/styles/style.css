@@ -1,0 +1,38 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: cornsilk;
+}
+header {
+	background-color: coral;
+	height: 50px;
+}
+.off {
+	display: none;
+}
+.on {
+	display: block;
+}
+
+section {
+	width: 100%;
+	height: calc(100vh - 50px);
+	background-color: #f4f4f4;
+	display: flex;
+	justify-content: center;
+	padding: 15px;
+}
+/* SPLASH */
+#splash {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* AGREGAR ITEM */
