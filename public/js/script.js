@@ -4,37 +4,68 @@ const splashAddForm = document.getElementById('splash-button-form');
 let splash = document.getElementById('splash');
 let agregarItem = document.getElementById('agregar-item');
 let listado = document.getElementById('listado');
-let descripcion = document.getElementById('descripcion');
-const cancelarButton = document.getElementById('cancelar-button');
+let splashDescripcion = document.getElementById('descripcion');
+const closeDesc = document.getElementById('close-desc');
 const addButton = document.getElementById('add-button');
 
 // botones
 splashAdd.addEventListener('click', function () {
-	splash.style.display = 'none';
-	listado.style.display = 'none';
-	agregarItem.style.display = 'flex';
+	splash.classList.replace('d-flex', 'd-none');
+	agregarItem.classList.replace('d-none', 'd-md-block');
+	listado.classList.add('d-md-block');
 });
-cancelarButton.addEventListener('click', function () {
-	splash.style.display = 'flex';
-	agregarItem.style.display = 'none';
-});
-splashAddForm.addEventListener('click', function () {
-	splash.style.display = 'none';
-	listado.style.display = 'none';
-	agregarItem.style.display = 'flex';
-});
+
 addButton.addEventListener('click', function () {
-	listado.style.display = 'flex';
-	agregarItem.style.display = 'none';
 	let nombreItem = document.getElementById('nombreItem');
 	let descItem = document.getElementById('descItem');
 	let opcionesItem = document.getElementById('opcionesItem');
-	crearItem(nombreItem.value, descItem.value, opcionesItem.value);
+
+	if (nombreItem.value == '') {
+		alert('tenes que ingresar un nombre pedazo de michi');
+	} else {
+		agregarItem.classList.add('d-none');
+		listado.classList.replace('d-none', 'd-block');
+		crearItem(nombreItem.value, descItem.value, opcionesItem.value);
+		document.getElementById('form').reset();
+	}
+});
+
+splashAddForm.addEventListener('click', function () {
+	listado.classList.replace('d-block', 'd-none');
+	agregarItem.classList.replace('d-none', 'd-block');
 });
 // funcion para crear un li
 function crearItem(nombre, descripcion, opcion) {
-	let newItem = `<li>${opcion}  <strong>${nombre}</strong> <p class='off'>${descripcion}
-    </p></li>`;
+	let newItem = `<li itemprop="item" data-name="${nombre}" data-icon="${opcion}" data-desc="${descripcion}">${opcion}   ${nombre} </li> `;
+
 	let lista = document.getElementById('lista');
 	lista.innerHTML += newItem;
 }
+
+//escuchando clicks de los li
+document.addEventListener('click', function (e) {
+	if (e.target.localName == 'li') {
+		let dataName = e.target.getAttribute('data-name');
+		let dataIcon = e.target.getAttribute('data-icon');
+		let dataDesc = e.target.getAttribute('data-desc');
+		let h1Name = document.getElementById('titulo-item');
+		let spanIcon = document.getElementById('icono-item');
+		let pDesc = document.getElementById('descripcion-item');
+
+		h1Name.innerHTML = dataName;
+		spanIcon.innerHTML = dataIcon;
+		pDesc.innerHTML = dataDesc;
+
+		listado.classList.replace('d-block', 'd-none');
+		listado.classList.replace('d-md-block', 'd-md-none');
+		splashDescripcion.classList.replace('d-none', 'd-block');
+		splashDescripcion.classList.replace('d-md-none', 'd-md-block');
+	}
+});
+// cierre de descripcion
+closeDesc.addEventListener('click', function () {
+	listado.classList.replace('d-none', 'd-block');
+	listado.classList.replace('d-md-none', 'd-md-block');
+	splashDescripcion.classList.replace('d-block', 'd-none');
+	splashDescripcion.classList.replace('d-md-none', 'd-md-none');
+});

@@ -3,54 +3,120 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- META DATA PARA BUSCADORES -->
+		<meta name="author" content="Coria Roldan Ivan" />
+		<meta name="copyright" content="Argonauta 2020" />
+		<meta name="description" content="Lista de compras para el summerhack" />
+		<meta name="robots" content="index" />
+		<meta
+			name="keywords"
+			content="lista, compras, dev, html, css, bootstrap, flexbox,"
+		/>
+
+		<!-- META DATA PARA FACEBOOK -->
+		<meta property="og:title" content="Summerhack - Desafio 03 Sangōki" />
+		<meta property="og:url" content="https://escueladevrock.com/" />
+		<meta property="og:type" content="webpage" />
+		<meta property="og:creator" content="Coria Ivan" />
+		<meta
+			property="og:description"
+			content="Lista de compras para el summerhack"
+		/>
+		<meta
+			property="og:image"
+			content="https://summerhack-02.web.app/img/logo.png"
+		/>
+		<!-- META DATA PARA TWITTER -->
+		<meta property="twitter:url" content="https://escueladevrock.com/" />
+		<meta property="twitter:title" content="Summerhack - Desafio 02 Nigōki" />
+		<meta property="twitter:type" content="webpage" />
+		<meta property="twitter:creator" content="Coria Ivan" />
+		<meta
+			property="twitter:description"
+			content="Lista de compras para el summerhack"
+		/>
+		<meta
+			property="twitter:image"
+			content="https://summerhack-02.web.app/img/logo.png"
+		/>
 		<title>Lista de compras</title>
-		<link rel="stylesheet" href="styles/style.css" />
+
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 			crossorigin="anonymous"
 		/>
+		<link rel="stylesheet" href="styles/style.css" />
+		<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 	</head>
 	<body>
-		<header><h1>Lista de summer compras</h1></header>
-		<section>
-			<div class="on" id="splash">
-				<h2>Aun no agregaste nada a tu lista de compras</h2>
-				<i class="far fa-sad-tear fa-10x"></i>
-				<button class="btn btn-primary" id="splash-button">Agregar</button>
+		<header>
+			<div class="container">
+				<img src="favicon.png" alt="logo" />
+				<h2>SUMMERCOMPRAS</h2>
 			</div>
-			<div class="off" id="agregar-item">
-				<form>
-					<div class="mb-3">
-						<label for="nombreItem" class="form-label">Nombre</label>
-						<input type="text" class="form-control" id="nombreItem" />
-					</div>
-					<div class="mb-3">
-						<label for="descItem" class="form-label">Descripcion</label>
-						<textarea class="form-control" id="descItem"></textarea>
-					</div>
-					<div class="mb-3">
-						<select id="opcionesItem" class="form-select">
-							<option value="🏠" selected>🏠 hogar</option>
-							<option value="🍔">🍔 comida</option>
-							<option value="💻">💻 electronica</option>
-							<option value="🛀">🛀 baño y limpieza</option>
-						</select>
-					</div>
+		</header>
+		<section class="container">
+			<div class="row">
+				<div class="d-flex flex-column col-12" id="splash">
+					<h2>Aun no agregaste nada a tu lista de compras</h2>
+					<i class="far fa-sad-tear fa-10x m-5"></i>
+					<button class="btn btn-primary" id="splash-button">Agregar</button>
+				</div>
+				<div class="d-none col-12 col-md-6" id="agregar-item">
+					<h2>Agregar item:</h2>
+					<form class="d-flex flex-column" id="form">
+						<div class="mb-3">
+							<label for="nombreItem" class="form-label">Nombre</label>
+							<input type="text" class="form-control" id="nombreItem" />
+						</div>
+						<div class="mb-3">
+							<label for="descItem" class="form-label">Descripcion</label>
+							<textarea class="form-control" id="descItem"></textarea>
+						</div>
+						<div class="mb-3">
+							<select id="opcionesItem" class="form-select">
+								<option value="🏠" selected>🏠 hogar</option>
+								<option value="🍔">🍔 comida</option>
+								<option value="💻">💻 electronica</option>
+								<option value="🛀">🛀 baño y limpieza</option>
+							</select>
+						</div>
 
-					<button type="button" id="add-button" class="btn btn-primary">
+						<button
+							type="button"
+							id="add-button"
+							class="btn btn-primary m-5 justify-self-end"
+						>
+							Agregar
+						</button>
+					</form>
+				</div>
+				<div class="d-none col-12 col-md-6" id="listado">
+					<h2>Lista de compras:</h2>
+					<ul id="lista"></ul>
+					<button
+						class="btn btn-primary d-block d-md-none m-5"
+						id="splash-button-form"
+					>
 						Agregar
 					</button>
-
-					<button class="btn btn-danger" id="cancelar-button">Cancelar</button>
-				</form>
+				</div>
+				<div
+					class="d-none col-12 col-md-6"
+					itemscope
+					itemtype="http://schema.org/ListItem"
+					id="descripcion"
+				>
+					<button class="btn btn-danger position-relative" id="close-desc">
+						X
+					</button>
+					<span id="icono-item">🏠 </span>
+					<h1 id="titulo-item">Titulo</h1>
+					<p id="descripcion-item">descripcion</p>
+				</div>
 			</div>
-			<div class="off mb-3 flex-column" id="listado">
-				<ul id="lista"></ul>
-				<button class="btn btn-primary" id="splash-button-form">Agregar</button>
-			</div>
-			<div class="off" id="descripcion">descripcion</div>
 		</section>
 		<footer></footer>
 		<script

@@ -1,14 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 * {
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
 }
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	color: cornsilk;
+	font-family: 'Open Sans', sans-serif;
+	color: #daebf2;
+	background-color: #34332f;
 }
 header {
-	background-color: coral;
+	background-color: #1d1c1a;
+	height: 50px;
+}
+header .container {
+	display: flex;
+	align-items: center;
+}
+header .container img {
+	width: 50px;
 	height: 50px;
 }
 .off {
@@ -21,7 +31,6 @@ header {
 section {
 	width: 100%;
 	height: calc(100vh - 50px);
-	background-color: #f4f4f4;
 	display: flex;
 	justify-content: center;
 	padding: 15px;
@@ -36,3 +45,34 @@ section {
 }
 
 /* AGREGAR ITEM */
+#agregar-item {
+	min-width: 300px;
+}
+#listado {
+	min-width: 300px;
+}
+#descripcion {
+	width: 300px;
+	overflow: hidden;
+}
+#lista {
+	list-style: none;
+	padding-left: 0px;
+}
+#lista li {
+	cursor: pointer;
+	background-color: #3f4246;
+	border-radius: 8px;
+	padding: 2px;
+
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 5px 0px;
+}
+#close-desc {
+	float: right;
+	border-radius: 100%;
+}
+#icono-item {
+	font-size: 40px;
+}
