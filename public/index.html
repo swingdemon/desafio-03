@@ -69,11 +69,16 @@
 					<form class="d-flex flex-column" id="form">
 						<div class="mb-3">
 							<label for="nombreItem" class="form-label">Nombre</label>
-							<input type="text" class="form-control" id="nombreItem" />
+							<input
+								required
+								type="text"
+								class="form-control"
+								id="nombreItem"
+							/>
 						</div>
 						<div class="mb-3">
 							<label for="descItem" class="form-label">Descripcion</label>
-							<textarea class="form-control" id="descItem"></textarea>
+							<textarea required class="form-control" id="descItem"></textarea>
 						</div>
 						<div class="mb-3">
 							<select id="opcionesItem" class="form-select">
@@ -110,7 +115,7 @@
 					id="descripcion"
 				>
 					<button class="btn btn-danger position-relative" id="close-desc">
-						X
+						<strong>X</strong>
 					</button>
 					<span id="icono-item">🏠 </span>
 					<h1 id="titulo-item">Titulo</h1>

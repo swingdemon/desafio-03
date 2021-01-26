@@ -40,28 +40,31 @@ function crearItem(nombre, descripcion, opcion) {
 
 	let lista = document.getElementById('lista');
 	lista.innerHTML += newItem;
+	//escuchando clicks de los li
+	let itemList = document.querySelector('#lista');
+	itemList.addEventListener('click', function (e) {
+		if (e.target.localName == 'li') {
+			//capturando data atributes
+			let dataName = e.target.getAttribute('data-name');
+			let dataIcon = e.target.getAttribute('data-icon');
+			let dataDesc = e.target.getAttribute('data-desc');
+			//capturando elementos html
+			let h1Name = document.getElementById('titulo-item');
+			let spanIcon = document.getElementById('icono-item');
+			let pDesc = document.getElementById('descripcion-item');
+			//metiendo data atributes en elementos html
+			h1Name.innerHTML = dataName;
+			spanIcon.innerHTML = dataIcon;
+			pDesc.innerHTML = dataDesc;
+			//mostrando descripcion y ocultando lista
+			listado.classList.replace('d-block', 'd-none');
+			listado.classList.replace('d-md-block', 'd-md-none');
+			splashDescripcion.classList.replace('d-none', 'd-block');
+			splashDescripcion.classList.replace('d-md-none', 'd-md-block');
+		}
+	});
 }
 
-//escuchando clicks de los li
-document.addEventListener('click', function (e) {
-	if (e.target.localName == 'li') {
-		let dataName = e.target.getAttribute('data-name');
-		let dataIcon = e.target.getAttribute('data-icon');
-		let dataDesc = e.target.getAttribute('data-desc');
-		let h1Name = document.getElementById('titulo-item');
-		let spanIcon = document.getElementById('icono-item');
-		let pDesc = document.getElementById('descripcion-item');
-
-		h1Name.innerHTML = dataName;
-		spanIcon.innerHTML = dataIcon;
-		pDesc.innerHTML = dataDesc;
-
-		listado.classList.replace('d-block', 'd-none');
-		listado.classList.replace('d-md-block', 'd-md-none');
-		splashDescripcion.classList.replace('d-none', 'd-block');
-		splashDescripcion.classList.replace('d-md-none', 'd-md-block');
-	}
-});
 // cierre de descripcion
 closeDesc.addEventListener('click', function () {
 	listado.classList.replace('d-none', 'd-block');
