@@ -103,7 +103,7 @@
 				</div>
 				<div class="d-none col-12 col-md-6" id="listado">
 					<h2>Lista de compras:</h2>
-					<ul id="lista"></ul>
+					<ul itemscope itemtype="http://schema.org/ListItem" id="lista"></ul>
 					<button
 						class="btn btn-primary d-block d-md-none m-5"
 						id="splash-button-form"
@@ -111,12 +111,7 @@
 						Agregar
 					</button>
 				</div>
-				<div
-					class="d-none col-12 col-md-6"
-					itemscope
-					itemtype="http://schema.org/ListItem"
-					id="descripcion"
-				>
+				<div class="d-none col-12 col-md-6" id="descripcion">
 					<button class="btn btn-danger position-relative" id="close-desc">
 						<strong>X</strong>
 					</button>
