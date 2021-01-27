@@ -6,6 +6,8 @@
 }
 body {
 	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
 	color: #daebf2;
 	background-color: #34332f;
 
@@ -18,11 +20,17 @@ header {
 header .container {
 	display: flex;
 	align-items: center;
+	padding-top: 3px;
 }
 header .container img {
 	width: 50px;
 	height: 50px;
 }
+header .container a {
+	color: #daebf2;
+	text-decoration: none;
+}
+
 .off {
 	display: none;
 }
@@ -32,7 +40,7 @@ header .container img {
 
 section {
 	width: 100%;
-	height: calc(100vh - 50px);
+	height: calc(100vh - 80px);
 	display: flex;
 	justify-content: center;
 	padding: 15px;
@@ -44,6 +52,7 @@ section {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	font-size: 80px;
 }
 
 /* AGREGAR ITEM */
@@ -56,6 +65,8 @@ section {
 #descripcion {
 	width: 300px;
 	overflow: hidden;
+	background-color: #3f4246;
+	border-radius: 8px;
 }
 #lista {
 	list-style: none;
@@ -74,7 +85,23 @@ section {
 #close-desc {
 	float: right;
 	border-radius: 100%;
+	margin-top: 10px;
 }
 #icono-item {
 	font-size: 40px;
+}
+
+footer {
+	text-align: center;
+	align-self: flex-end;
+
+	bottom: 0px;
+}
+
+footer h3 {
+	font-size: 16px;
+}
+footer h3 a {
+	text-decoration: none;
+	color: violet;
 }

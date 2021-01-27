@@ -72,3 +72,4 @@ closeDesc.addEventListener('click', function () {
 	splashDescripcion.classList.replace('d-block', 'd-none');
 	splashDescripcion.classList.replace('d-md-none', 'd-md-none');
 });
+document.addEventListener('click', (e) => console.log(e));
