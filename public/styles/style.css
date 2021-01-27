@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url(//db.onlinewebfonts.com/c/9882baf89f6a50439487112cbd8a91dd?family=UA+Cadet);
 * {
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
+}
+header .container h2 a {
+	font-family: 'UA Cadet';
 }
 body {
 	font-family: 'Open Sans', sans-serif;
